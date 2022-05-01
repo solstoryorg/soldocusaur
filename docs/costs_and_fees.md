@@ -29,9 +29,10 @@ continue to maintain things like the CDN and also buy the huge number of lattes
 and bobas that it takes to write all of this infrastructure code.
 
 In order to distribute this cost more fairly, a WriterHead can be initialized
-by either the writer program itself *or* by the NFT owner. Meaning that
+by either the writer program itself *or* by the NFT creator (technically whomever
+holds update privileges). Meaning that
 developers can offer functionality to NFTs and either handle collecting payment
-themselves or ask the NFT owners to initialize the WriterHeads themselves (or both).
+themselves or ask the NFT creator to initialize the WriterHeads themselves (or both).
 
 NOTE: For efficiency’s purpose the appendItemCreate function will automatically
 create a writer head. The appendItem function will not–this is to avoid writer

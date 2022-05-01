@@ -1,8 +1,11 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 
-# Overview
+# Items
+
+Items are stored off-chain. Each item links to the next item in the list, and
+contains data as well as (verified) information for verifying the next item.
 
 ```
 {
@@ -29,10 +32,10 @@ sidebar_position: 2
     "type": ITEM|CORRECTION,
     ref?,
     "display"?: {
-      img,
-      label,
-      long_description,
-      help_text,
+      img: text (url),
+      label: text,
+      long_description: text,
+      help_text: text,
     },
     "data"
 }

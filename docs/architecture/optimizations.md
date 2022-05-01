@@ -1,8 +1,14 @@
 ---
-sidebar_position: 3
+sidebar_position: 8
 ---
 
-# Optimizations
+# Advanced - Optimizations
+
+In designing an architcure for large scale data storage, it's crucial to keep
+in mind cost. Particularly if one of the problems you're trying to solve
+is the high cost of storing things for Solana programs on chain.
+
+## Storage
 
 An individual story should have minimal on chain storage requirements, since
 rent exempt storage on chain quickly adds up. At $100 Sol a KB of on chain
@@ -30,23 +36,14 @@ writerHeadPDA for nft_id". Which is important. But that's where CDNs come in.
 ## Why CDNs
 There’s some irreducible complexity associated with a distributed programming infrastructure.
 
-Without a CDN, you either need to scan the blockchain for every single NFT in
-a wallet, causing O(N) requests to the API plus more for anyone choosing to use
-on-chain data storage.
+Without a CDN, you end up scanning the blockchain for every single possible writer
+program of an NFT, then again making as many individual web requests in serial
+for the number of past records you want to display.
 
-Then for each story you need to follow that hash chain down, causing O(N*L) requests
-where L is avg hash chain length. You _can_ consider that a constant at low
-numbers, but as NFTs exist and interact with programs the hash chain only grows longer.
+A CDN allows us to optimize this: we can use a single request to get every single
+head for the NFT. Then we can use the same (or a different cdn, if the writer program
+specifies) to get a large set of items at once, for a single web request.
 
-UNFUCK THIS
-Say you cut off at the most recent 20 a events, now you have K*O(N) but for a
-relatively high K. For a 20 NFT wallet that’s up to 20 chain requests, and either a single big request that retrieves all the metadata or W1 requests where W1 is the number of attached writer programs, and 400 web requests.
-
-
-We can trade off some additional web requests for lower storage costs. If we choose to use getMultipleAccounts to retrieve Heads, then we get O(NW) account lookups, but with a fractional constant because we can send 10^3-ish account lookups per multipleAccountsCall. We _are_ also stuck with the big metadata request since we need it to generate the account lookups. Chain requests remain the same.
-
-It’s worth noting that by this math as long as we have less than some _fairly_ high number of programs, getting multiple accounts actually more efficient, since instead of making O(N) requests we make 0.01*O(NK). So we’re really looking at program growth numbers here. Interestingly we can resolve this by releasing a version 2 if necessary to allow for larger Head accounts that give us the ability to perform the net and writer filters.
-
-
-All of this changes of course when we bring CDNs into the mix. We need to differentiate between two types of CDNs: writer CDNs and global CDNs. A writer CDN subscribes to program account updates or is otherwise operated by the writer operator, and it houses the full chain (or a significant fraction of it) on it to avoid the O(N*L) web requests to reconstruct moments for the client. A global CDN can answer the same questions that our on-chain representation can but with the actual backlink id’s so we don’t have to play this guess and check hyperoptimization game, instead we just do a sql query where we get all existing objects where nft_id in [nft_ids].
+Validation still works: we can either get the on-chain head in parallel to verify
+or trust that Solstory's centrally run CDN is being honest.
 

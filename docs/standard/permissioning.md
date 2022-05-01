@@ -1,13 +1,15 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 # Permissioning
 
 Solstory deliberately offers fine grained control over when and how a story
 should be displayed. This is to protect the rights and interests of the nft
-creator (sometimes referred to as the "owner" in documentation–on the assumption
-that the API is used before sale), the writer-program developer, and the
+creator (in technical terms this is enforced by giving permissions to
+do "creator" things to whomever holds the update rights in the metaplex pda,
+so in many ways this is like a sort of copyright that could theoretically also
+be sold) that the API is used before sale), the writer-program developer, and the
 eventual end user (sometimes referred to as the "holder").
 
 ## Permissioning Flags

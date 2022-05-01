@@ -4,8 +4,12 @@ sidebar_position: 1
 
 # Intro
 
-This section explains the data standard. The [metadata](metadata.md) and
-[writerHead](writerhead.md) both live on the solana chain itself as PDAs,
+This section explains the data standard. The JS API already enforces the data
+standard, which means this section is purely as a second reference for folks
+who want more details for implementing a non JS API or want to glance at internals.
+
+The [metadata](metadata.md) and
+[writerHead](writerhead.md) both live on the Solana chain itself as PDAs,
 their inclusion here is mostly a guide in understanding them.
 
 The [items](items.md) standard describes the format of items living off-chain,

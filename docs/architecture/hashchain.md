@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Hash Chain
+# Why a Hash Chain
 
 The trick behind keeping a solstory story constant space is storing the data off
 chain. The challenge here is maintaining solana's verifiability characteristics

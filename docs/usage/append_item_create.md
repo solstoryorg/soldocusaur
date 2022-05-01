@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# appendItem vs appendItemCreate
+# Advanced - appendItem vs appendItemCreate
 
 More details on both of these can be found in the API docs [here](https://solstoryorg.github.io/solstory/classes/server_writer.SolstoryServerWriterAPI.html#appendItem).
 

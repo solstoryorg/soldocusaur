@@ -13,13 +13,9 @@ h(data_4+h(data_3+h(data_2+h(data_1)))). This lets us validate the data AND
 previous hash just by knowing the current hash. Applied recursively it lets us
 validate the entire chain from the most recent hash.
 
-**Owner** - We frequently use owner to refer to the creator of an NFT, partially
-because we expect them to mostly interact with Solstory before the
-initial sale, and partically as a tacit acknowledgement of our own discomfort
-with how mutable NFTs generally are even after they leave the creator's hands
-(A lot of early design for solstory came from thinking about how to avoid this
-situation with our architecture). We've tried to switch to "creator" where we can,
-but owner is still in parts of the source code.
+**Creator** - The entity that created the NFT, understood in the Solstory world
+as the pubkey(s) with update privileges in the Metaplex metadata (specifically
+the on-chain pda) for the given NFT.
 
 **Writer** - A public key identifying either an on or off chain program writing
 data to NFTs.
