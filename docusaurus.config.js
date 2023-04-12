@@ -13,8 +13,9 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'solstory', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'solstoryorg', // Usually your GitHub org/user name.
+  projectName: 'soldocusaurus', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
 
   presets: [
     [
