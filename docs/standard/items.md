@@ -5,11 +5,11 @@ sidebar_position: 4
 # Items
 
 Items are stored off-chain. Each item links to the next item in the list, and
-contains data as well as (verified) information for verifying the next item.
+contains data as well as (validated) information for verifying the next item.
 
 ```
 {
-  "verified": {
+  "validated": {
     "itemRaw": text (json of item, see below),
     "itemHash": hex,
     "nextHash": [0-255 * 32],
@@ -41,7 +41,7 @@ contains data as well as (verified) information for verifying the next item.
 }
 ```
 
-- `verified` this section contains the information that can be verified using the solstory architecture.
+- `validated` this section contains the information that can be validated using the solstory architecture.
 - `itemRaw` json dictionaries don't have a defined ordering, so in order for verification to work properly this needs to be raw text that separately serialized before the entire object is serialized. The raw text is what gets used for the hashing algorithm.
 - `itemHash` hash of `itemRaw` - should be recalculated by the client api for verification.
 - `nextHash` the hash of the next item

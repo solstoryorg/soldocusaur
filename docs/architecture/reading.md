@@ -12,7 +12,7 @@ and the verification hash used to protect the rest of the chain from tampering.
 The `accessType` enum together with the objId give us the information required
 to look up the first item in the chain. We load that clientside, and it gives
 us the same information to look up the next. Each item is secured by a hash
-calculation, and within that verified set of information is the hash for
+calculation, and within that validated set of information is the hash for
 the next item, so we can recursively verify the authenticity of the entire chain.
 
 ## CDN

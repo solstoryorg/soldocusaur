@@ -10,7 +10,7 @@ Metadata live on-chain in the WriterMetadata pda.
 {
 writerKey: web3.PublicKey,
   visible: boolean,
-  systemValidated: boolean,
+  systemVerified: boolean,
   apiVersion: number,
 
   label: text
@@ -28,7 +28,7 @@ writerKey: web3.PublicKey,
 
 - `writerKey` - public key of the writer program.
 - `visible` - boolean set by the writer program to determine if end users should see this story. Setting this to false allows a developer to use a program for purely internal storage.
-- `systemValidated` - `boolean` set by Solstory org for programs that have gone external verification, which mostly just ensures that spammers and impersonators cannot abuse the network. (See FAQ #3 for our thoughts on centralization here)
+- `systemVerified` - `boolean` set by Solstory org for programs that have gone external verification, which mostly just ensures that spammers and impersonators cannot abuse the network. (See FAQ #3 for our thoughts on centralization here)
 - `apiVersion` - `int` representing api versions, currently set to 1.
 - `label` - `text` how display programs should label this program, basically a title.
 - `description` - `text` description of the program, used for display.

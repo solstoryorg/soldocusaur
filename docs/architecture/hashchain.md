@@ -29,7 +29,7 @@ timestamp, and prev-hash. This is what keeps the onchain footprint so small.
 Actual items also store the data the merkle tree is verifying, in this case
 a single appended record to the chain.
 
-## Verification
+## Validation
 For the sake of resilience, it's important to note that the pointers to where data
 is located is *not* verified in any of the hashes. So even if arweave or an s3
 bucket or any other data location goes down, the entire chain can still be

@@ -18,7 +18,7 @@ eventual end user (sometimes referred to as the "holder").
 
 These are relevant to every single story spawned by the writer, and cover broad
 properties of the writer program.
-- `systemValidated` is a bit set by the solstory team for programs that have been
+- `systemVerified` is a bit set by the solstory team for programs that have been
 checked by the team. This serves as a basic defense against imposters or against
 malicious spam.
 - `visible` is a bit set by the writer to flag whether a story should be
